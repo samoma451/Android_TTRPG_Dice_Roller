@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button rolld4btn = findViewById(R.id.d4btn);
         Button rolld6btn = findViewById(R.id.d6btn);
+        Button rolld8btn = findViewById(R.id.d8btn);
         Button rolld20btn = findViewById(R.id.d20btn);
 
         rolld4btn.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
                 intent.putExtra("diceType", 6);
+                startActivity(intent);
+
+            }
+        });
+
+        rolld8btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
+                intent.putExtra("diceType", 8);
                 startActivity(intent);
 
             }

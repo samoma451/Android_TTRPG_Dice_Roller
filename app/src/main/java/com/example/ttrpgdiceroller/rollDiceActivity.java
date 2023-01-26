@@ -27,9 +27,12 @@ public class rollDiceActivity extends AppCompatActivity {
     private final int maxNumOfDice = 8;
 
     //arrays holding images to be used for different types of dice and values of dice faces
-    private final int[] d4Images = new int[]{R.drawable.d4_1, R.drawable.d4_2, R.drawable.d4_3, R.drawable.d4_4};
+    //private final int[] d4Images = new int[]{R.drawable.d4_1, R.drawable.d4_2, R.drawable.d4_3, R.drawable.d4_4};
 
     private final int[] d6Images = new int[]{R.drawable.d6_1, R.drawable.d6_2, R.drawable.d6_3, R.drawable.d6_4, R.drawable.d6_5, R.drawable.d6_6};
+
+    private final int[] d8Images = new int[]{R.drawable.d8_1, R.drawable.d8_2, R.drawable.d8_3, R.drawable.d8_4,
+            R.drawable.d8_5, R.drawable.d8_6, R.drawable.d8_7, R.drawable.d8_8};
 
     private final int[] d20Images = new int[]{R.drawable.d20_1, R.drawable.d20_2, R.drawable.d20_3, R.drawable.d20_4,
             R.drawable.d20_5, R.drawable.d20_6, R.drawable.d20_7, R.drawable.d20_8,
@@ -79,11 +82,15 @@ public class rollDiceActivity extends AppCompatActivity {
         //assigning the images to be used depending on user selection of dice type
         switch (diceType){
             case 4:
-                diceImages = d4Images;
+                //diceImages = d4Images;
                 break;
 
             case 6:
                 diceImages = d6Images;
+                break;
+
+            case 8:
+                diceImages = d8Images;
                 break;
 
             case 20:
