@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -27,12 +28,16 @@ public class rollDiceActivity extends AppCompatActivity {
     private final int maxNumOfDice = 8;
 
     //arrays holding images to be used for different types of dice and values of dice faces
-    //private final int[] d4Images = new int[]{R.drawable.d4_1, R.drawable.d4_2, R.drawable.d4_3, R.drawable.d4_4};
+    private final int[] d4Images = new int[]{R.drawable.d4_1, R.drawable.d4_2, R.drawable.d4_3, R.drawable.d4_4};
 
     private final int[] d6Images = new int[]{R.drawable.d6_1, R.drawable.d6_2, R.drawable.d6_3, R.drawable.d6_4, R.drawable.d6_5, R.drawable.d6_6};
 
     private final int[] d8Images = new int[]{R.drawable.d8_1, R.drawable.d8_2, R.drawable.d8_3, R.drawable.d8_4,
             R.drawable.d8_5, R.drawable.d8_6, R.drawable.d8_7, R.drawable.d8_8};
+
+    private final int[] d10Images = new int[]{R.drawable.d10_1, R.drawable.d10_2, R.drawable.d10_3, R.drawable.d10_4,
+            R.drawable.d10_5, R.drawable.d10_6, R.drawable.d10_7, R.drawable.d10_8,
+            R.drawable.d10_9, R.drawable.d10_10};
 
     private final int[] d20Images = new int[]{R.drawable.d20_1, R.drawable.d20_2, R.drawable.d20_3, R.drawable.d20_4,
             R.drawable.d20_5, R.drawable.d20_6, R.drawable.d20_7, R.drawable.d20_8,
@@ -51,7 +56,7 @@ public class rollDiceActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int diceType = intent.getIntExtra("diceType", 20);//dice type passed based on button clicked by user in main activity
 
-        @SuppressWarnings("IntegerDivisionInFloatingPointContext") final int halfMaxNumOfDice = (int) Math.ceil(maxNumOfDice/2);//calculating and rounding now as is frequently used and too tedious to round on every occurence
+        final int halfMaxNumOfDice = (int) Math.ceil(maxNumOfDice/2);//calculating and rounding now as is frequently used and too tedious to round on every occurence
 
         //assigning each button for later use
         Button increaseBtn = findViewById(R.id.increaseDice);
@@ -82,7 +87,7 @@ public class rollDiceActivity extends AppCompatActivity {
         //assigning the images to be used depending on user selection of dice type
         switch (diceType){
             case 4:
-                //diceImages = d4Images;
+                diceImages = d4Images;
                 break;
 
             case 6:
@@ -91,6 +96,10 @@ public class rollDiceActivity extends AppCompatActivity {
 
             case 8:
                 diceImages = d8Images;
+                break;
+
+            case 10:
+                diceImages = d10Images;
                 break;
 
             case 20:
@@ -165,6 +174,17 @@ public class rollDiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(numOfDice<maxNumOfDice) {
                     numOfDice++;
+
+                    if(numOfDice > 1){
+                        decreaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
+                                R.color.redButtonEnabled));
+                    }
+
+                    if(numOfDice == maxNumOfDice){
+                        increaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
+                                R.color.redButtonDisabled));
+                    }
+
                     if(numOfDice==halfMaxNumOfDice+1){
                         diceCollection[halfMaxNumOfDice].setVisibility(View.VISIBLE);
                     }
@@ -203,6 +223,14 @@ public class rollDiceActivity extends AppCompatActivity {
                         }
 
                     numOfDice--;
+                    if(numOfDice == 1){
+                        decreaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
+                                R.color.redButtonDisabled));
+                    }
+                    if(numOfDice < maxNumOfDice){
+                        increaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
+                                R.color.redButtonEnabled));
+                    }
 
                     ViewGroup.LayoutParams params = new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

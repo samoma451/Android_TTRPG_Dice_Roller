@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="openrolld20Activity"
             android:shadowColor="#000000"
             android:text="Roll d4" />
 
@@ -26,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="openrolld20Activity"
             android:shadowColor="#000000"
             android:text="Roll d6" />
 
@@ -35,16 +33,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="openrolld20Activity"
             android:shadowColor="#000000"
             android:text="Roll d8" />
+
+        <Button
+            android:id="@+id/d10btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:shadowColor="#000000"
+            android:text="Roll d10" />
 
         <Button
             android:id="@+id/d20btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="openrolld20Activity"
+            android:shadowColor="#000000"
             android:text="Roll d20" />
     </LinearLayout>
 

@@ -18,14 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Button rolld4btn = findViewById(R.id.d4btn);
         Button rolld6btn = findViewById(R.id.d6btn);
         Button rolld8btn = findViewById(R.id.d8btn);
+        Button rolld10btn = findViewById(R.id.d10btn);
         Button rolld20btn = findViewById(R.id.d20btn);
 
         rolld4btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
-                intent.putExtra("diceType", 4);
-                startActivity(intent);
+                openRollDiceActivity(4);
 
             }
         });
@@ -33,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
         rolld6btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
-                intent.putExtra("diceType", 6);
-                startActivity(intent);
+                openRollDiceActivity(6);
 
             }
         });
@@ -43,9 +40,15 @@ public class MainActivity extends AppCompatActivity {
         rolld8btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
-                intent.putExtra("diceType", 8);
-                startActivity(intent);
+                openRollDiceActivity(8);
+
+            }
+        });
+
+        rolld10btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRollDiceActivity(10);
 
             }
         });
@@ -53,12 +56,16 @@ public class MainActivity extends AppCompatActivity {
         rolld20btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
-                intent.putExtra("diceType", 20);
-                startActivity(intent);
+                openRollDiceActivity(20);
 
             }
         });
+    }
+
+    private void openRollDiceActivity(int diceType){
+        Intent intent = new Intent(MainActivity.this, rollDiceActivity.class);
+        intent.putExtra("diceType", diceType);
+        startActivity(intent);
     }
 
 
