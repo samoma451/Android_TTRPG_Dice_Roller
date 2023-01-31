@@ -23,9 +23,9 @@ import java.util.Random;
 public class rollDiceActivity extends AppCompatActivity {
 
     private ImageView[] diceCollection;//stores each dice ImageView
-    private TextView rollCount;//used to display results of dice rolls and sum of results
+    private TextView rollResult;//used to display results of dice rolls and sum of results
     private int numOfDice = 1;//tracks the number of dices requested to be rolled
-    private final int maxNumOfDice = 8;
+    private final int maxNumOfDice = 8;//setting the max number of dice. Have as class variable to make easier to change in future if needed
 
     //arrays holding images to be used for different types of dice and values of dice faces
     private final int[] d4Images = new int[]{R.drawable.d4_1, R.drawable.d4_2, R.drawable.d4_3, R.drawable.d4_4};
@@ -50,14 +50,14 @@ public class rollDiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_dice);
 
-        //inform user to click dice to roll
+        //inform user to click dice to roll when starting this activity
         Toast.makeText(this, "Tap the Dice to Roll!", Toast.LENGTH_SHORT).show();
 
         Intent intent = getIntent();
         int diceType = intent.getIntExtra("diceType", 20);//dice type passed based on button clicked by user in main activity
 
-        final int halfMaxNumOfDice = (int) Math.ceil(maxNumOfDice/2);//calculating and rounding now as is frequently used and too tedious to round on every occurence
-
+        //calculating and rounding now as is frequently used and too tedious to round on every occurence
+        final int halfMaxNumOfDice = (int) Math.ceil(maxNumOfDice/2);
         //assigning each button for later use
         Button increaseBtn = findViewById(R.id.increaseDice);
         Button decreaseBtn = findViewById(R.id.decreaseDice);
@@ -80,7 +80,7 @@ public class rollDiceActivity extends AppCompatActivity {
         diceCollection = new ImageView[]{diceA, diceB, diceC, diceD, diceE, diceF, diceG, diceH};
 
         //assigning TextView that displays roll results
-        rollCount = findViewById(R.id.rollCount);
+        rollResult = findViewById(R.id.rollResult);
 
         //initialising diceImages
         int[] diceImages = new int[0];
@@ -130,40 +130,44 @@ public class rollDiceActivity extends AppCompatActivity {
 
         int[] finalDiceImages = diceImages;//android studio suggests copying to "effectively temp final variable" - need to understand this better
 
-
+        //onClickListener for rolling dice when diceSpace (the layout containing the dice) is clicked
         diceSpace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random randGen = new Random();
+                Random randGen = new Random();//will be used to generate dice rolls
 
                 int[] randNums = new int[maxNumOfDice];
                 //StringBuilder more efficient than String for concatenating in loop. See https://pellegrino.link/2015/08/22/string-concatenation-with-java-8.html
                 //tl;dr String -> O(n^2), StringBuilder -> O(n)
-                StringBuilder rollCountText = new StringBuilder("Result: ");
+                StringBuilder rollResultText = new StringBuilder("Result: ");
 
-                mp.start();
+                mp.start();//plays sound of dice rolling
 
+                //uses shake_animation.xml which animates dice to show they have been rolled
                 Animation shake = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.shake_animation);
 
+                //generate a random roll for each dice, change ImageView to match, shake animation, and add to text for rollResult TextView
                 for (int i = 0; i < numOfDice; i++) {
                     randNums[i] = randGen.nextInt(diceType)+1;
                     diceCollection[i].setImageResource(finalDiceImages[randNums[i]-1]);
                     diceCollection[i].startAnimation(shake);
-                    rollCountText.append(randNums[i]).append(" + ");
-
+                    rollResultText.append(randNums[i]).append(" + ");
                 }
-                rollCountText = new StringBuilder(rollCountText.substring(0, rollCountText.length() - 3));//removing excessive " + "
-                rollCountText.append(" = ").append(Arrays.stream(randNums).sum());
+                
+                
+                rollResultText = new StringBuilder(rollResultText.substring(0, rollResultText.length() - 3));//removing excessive " + "
+                rollResultText.append(" = ").append(Arrays.stream(randNums).sum());//add sum of rolls to end of text for rollResult TextView
 
+                //Setting text on rollResult TextView. if statement checks if only one dice rolled as showing Result: 4 = 4 looks sloppy
                 if (numOfDice == 1){
                     String numToShow = Arrays.toString(randNums);
                     if (randNums[0] <= 10) {//checking if single or double digit number rolled. Might be a more efficient way to do this
                         //also might be a better approach by declaring string formats?
-                        rollCount.setText("Result: " + numToShow.charAt(1));//slightly faster than substring
+                        rollResult.setText("Result: " + numToShow.charAt(1));//slightly faster than substring
                     }else{
-                        rollCount.setText("Result: " + numToShow.substring(1, 3));
+                        rollResult.setText("Result: " + numToShow.substring(1, 3));
                     }
-                }else{rollCount.setText(rollCountText.toString());}
+                }else{rollResult.setText(rollResultText.toString());}
 
             }
         });
