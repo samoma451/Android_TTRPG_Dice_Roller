@@ -45,6 +45,14 @@
             android:text="Roll d10" />
 
         <Button
+            android:id="@+id/d12btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:shadowColor="#000000"
+            android:text="Roll d12" />
+
+        <Button
             android:id="@+id/d20btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

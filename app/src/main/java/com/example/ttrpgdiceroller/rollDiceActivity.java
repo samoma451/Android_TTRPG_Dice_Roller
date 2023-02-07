@@ -39,6 +39,10 @@ public class rollDiceActivity extends AppCompatActivity {
             R.drawable.d10_5, R.drawable.d10_6, R.drawable.d10_7, R.drawable.d10_8,
             R.drawable.d10_9, R.drawable.d10_10};
 
+    private final int[] d12Images = new int[]{R.drawable.d12_1, R.drawable.d12_2, R.drawable.d12_3, R.drawable.d12_4,
+            R.drawable.d12_5, R.drawable.d12_6, R.drawable.d12_7, R.drawable.d12_8,
+            R.drawable.d12_9, R.drawable.d12_10, R.drawable.d12_11, R.drawable.d12_12,};
+
     private final int[] d20Images = new int[]{R.drawable.d20_1, R.drawable.d20_2, R.drawable.d20_3, R.drawable.d20_4,
             R.drawable.d20_5, R.drawable.d20_6, R.drawable.d20_7, R.drawable.d20_8,
             R.drawable.d20_9, R.drawable.d20_10, R.drawable.d20_11, R.drawable.d20_12,
@@ -100,6 +104,10 @@ public class rollDiceActivity extends AppCompatActivity {
 
             case 10:
                 diceImages = d10Images;
+                break;
+
+            case 12:
+                diceImages = d12Images;
                 break;
 
             case 20:
@@ -181,12 +189,12 @@ public class rollDiceActivity extends AppCompatActivity {
 
                     if(numOfDice > 1){
                         decreaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                                R.color.redButtonEnabled));
+                                R.color.blueButtonEnabled));
                     }
 
                     if(numOfDice == maxNumOfDice){
                         increaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                                R.color.redButtonDisabled));
+                                R.color.blueButtonDisabled));
                     }
 
                     if(numOfDice==halfMaxNumOfDice+1){
@@ -229,11 +237,11 @@ public class rollDiceActivity extends AppCompatActivity {
                     numOfDice--;
                     if(numOfDice == 1){
                         decreaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                                R.color.redButtonDisabled));
+                                R.color.blueButtonDisabled));
                     }
                     if(numOfDice < maxNumOfDice){
                         increaseBtn.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),
-                                R.color.redButtonEnabled));
+                                R.color.blueButtonEnabled));
                     }
 
                     ViewGroup.LayoutParams params = new LinearLayout.LayoutParams(

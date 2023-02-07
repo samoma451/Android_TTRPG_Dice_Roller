@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
         Button rolld6btn = findViewById(R.id.d6btn);
         Button rolld8btn = findViewById(R.id.d8btn);
         Button rolld10btn = findViewById(R.id.d10btn);
+        Button rolld12btn = findViewById(R.id.d12btn);
         Button rolld20btn = findViewById(R.id.d20btn);
+
 
         rolld4btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openRollDiceActivity(10);
+
+            }
+        });
+
+        rolld12btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRollDiceActivity(12);
 
             }
         });
