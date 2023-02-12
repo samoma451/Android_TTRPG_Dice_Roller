@@ -74,12 +74,12 @@ public class rollDiceActivity extends AppCompatActivity {
         LinearLayout diceSpace = findViewById(R.id.diceSpace);
 
         //assigning each dice ImageView and adding to diceCollection Array
-        ImageView diceA = findViewById(R.id.d100);
-        ImageView diceB = findViewById(R.id.d10);
+        ImageView diceA = findViewById(R.id.diceA);
+        ImageView diceB = findViewById(R.id.diceB);
         ImageView diceC = findViewById(R.id.diceC);
         ImageView diceD = findViewById(R.id.diceD);
-        ImageView diceE = findViewById(R.id.d100B);
-        ImageView diceF = findViewById(R.id.d10B);
+        ImageView diceE = findViewById(R.id.diceE);
+        ImageView diceF = findViewById(R.id.diceF);
         ImageView diceG = findViewById(R.id.diceG);
         ImageView diceH = findViewById(R.id.diceH);
 

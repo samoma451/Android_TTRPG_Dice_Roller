@@ -1,14 +1,12 @@
 package sam.oma.ttrpgdiceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -25,7 +23,7 @@ public class rolld100Activity extends AppCompatActivity {
 
     private ImageView[] diceCollection;//stores each dice ImageView
     private TextView rollResult;//used to display results of dice rolls and sum of results
-    private int numOfDice = 2;//tracks the number of dices requested to be rolled
+    private final int numOfDice = 2;//tracks the number of dices requested to be rolled
 
     //arrays holding images to be used for different types of dice and values of dice faces
     private final int[] d10Images = new int[]{R.drawable.d10_1, R.drawable.d10_2, R.drawable.d10_3, R.drawable.d10_4,
@@ -51,8 +49,8 @@ public class rolld100Activity extends AppCompatActivity {
         LinearLayout diceSpace = findViewById(R.id.diceSpace);
 
         //assigning each dice ImageView and adding to diceCollection Array
-        ImageView diced100A = findViewById(R.id.d100);
-        ImageView diced10A = findViewById(R.id.d10);
+        ImageView diced100A = findViewById(R.id.diceA);
+        ImageView diced10A = findViewById(R.id.diceB);
 
         diceCollection = new ImageView[]{diced100A, diced10A};
 
