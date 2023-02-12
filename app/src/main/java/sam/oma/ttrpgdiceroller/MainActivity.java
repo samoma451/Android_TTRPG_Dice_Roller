@@ -1,12 +1,13 @@
-package com.example.ttrpgdiceroller;
+package sam.oma.ttrpgdiceroller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.ttrpgdiceroller.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button rolld10btn = findViewById(R.id.d10btn);
         Button rolld12btn = findViewById(R.id.d12btn);
         Button rolld20btn = findViewById(R.id.d20btn);
+        Button rolld100btn = findViewById(R.id.d100btn);
 
 
         rolld4btn.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        rolld100btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, rolld100Activity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     private void openRollDiceActivity(int diceType){
@@ -77,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("diceType", diceType);
         startActivity(intent);
     }
+
 
 
 }

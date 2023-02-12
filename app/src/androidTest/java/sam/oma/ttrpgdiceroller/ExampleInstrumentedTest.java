@@ -1,4 +1,4 @@
-package com.example.ttrpgdiceroller;
+package sam.oma.ttrpgdiceroller;
 
 import android.content.Context;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="sam.oma.ttrpgdiceroller.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,50 +15,65 @@
         <Button
             android:id="@+id/d4btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d4" />
+            android:text="Roll d4"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/d6btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d6" />
+            android:text="Roll d6"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/d8btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d8" />
+            android:text="Roll d8"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/d10btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d10" />
+            android:text="Roll d10"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/d12btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d12" />
+            android:text="Roll d12"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/d20btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:shadowColor="#000000"
-            android:text="Roll d20" />
+            android:text="Roll d20"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/d100btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:shadowColor="#000000"
+            android:text="Roll d100"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

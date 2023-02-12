@@ -13,17 +13,24 @@
         android:theme="@style/Theme.TTRPGDiceRoller"
         tools:targetApi="31">
         <activity
-            android:name=".rollDiceActivity"
-            android:launchMode="singleTask"
+            android:name="sam.oma.ttrpgdiceroller.rolld100Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTask"
-            android:exported="true">
+            android:name="sam.oma.ttrpgdiceroller.rollDiceActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="sam.oma.ttrpgdiceroller.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.ttrpgdiceroller;
+package sam.oma.ttrpgdiceroller;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+
+import com.example.ttrpgdiceroller.R;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -72,12 +74,12 @@ public class rollDiceActivity extends AppCompatActivity {
         LinearLayout diceSpace = findViewById(R.id.diceSpace);
 
         //assigning each dice ImageView and adding to diceCollection Array
-        ImageView diceA = findViewById(R.id.diceA);
-        ImageView diceB = findViewById(R.id.diceB);
+        ImageView diceA = findViewById(R.id.d100);
+        ImageView diceB = findViewById(R.id.d10);
         ImageView diceC = findViewById(R.id.diceC);
         ImageView diceD = findViewById(R.id.diceD);
-        ImageView diceE = findViewById(R.id.diceE);
-        ImageView diceF = findViewById(R.id.diceF);
+        ImageView diceE = findViewById(R.id.d100B);
+        ImageView diceF = findViewById(R.id.d10B);
         ImageView diceG = findViewById(R.id.diceG);
         ImageView diceH = findViewById(R.id.diceH);
 

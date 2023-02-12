@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".rollDiceActivity"
+    tools:context="sam.oma.ttrpgdiceroller.rollDiceActivity"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -55,7 +55,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/diceA"
+                    android:id="@+id/d100"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
@@ -65,7 +65,7 @@
                     app:srcCompat="@drawable/d20_1" />
 
                 <ImageView
-                    android:id="@+id/diceB"
+                    android:id="@+id/d10"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -99,7 +99,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/diceE"
+                    android:id="@+id/d100B"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -108,7 +108,7 @@
                     app:srcCompat="@drawable/d20_1" />
 
                 <ImageView
-                    android:id="@+id/diceF"
+                    android:id="@+id/d10B"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -163,7 +163,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:onClick="backToMainActivity"
             android:text="Back" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
