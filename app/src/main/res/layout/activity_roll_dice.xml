@@ -18,47 +18,46 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="0.2"
+            android:layout_height="40dp"
+            android:layout_weight="0.8"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/decreaseDice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@color/blueButtonDisabled"
-                android:text="Decrease # of Dice"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:layout_weight="0.2"
+                android:text="Decrease # of Dice" />
 
             <Button
                 android:id="@+id/increaseDice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@color/blueButtonEnabled"
-                android:text="Increase # of Dice"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:layout_weight="0.2"
+                android:text="Increase # of Dice" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/diceSpace"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="220dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/diceA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="The first dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -66,8 +65,8 @@
                     android:id="@+id/diceB"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The second dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -75,8 +74,8 @@
                     android:id="@+id/diceC"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The third dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -84,8 +83,8 @@
                     android:id="@+id/diceD"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The fourth dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
             </LinearLayout>
@@ -93,14 +92,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <ImageView
                     android:id="@+id/diceE"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The fifth dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -108,8 +113,8 @@
                     android:id="@+id/diceF"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The sixth dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -117,8 +122,8 @@
                     android:id="@+id/diceG"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The seventh dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -126,8 +131,8 @@
                     android:id="@+id/diceH"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:contentDescription="The eighth dice available"
-                    android:scaleX="0.9"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
                     android:scaleY="0.9"
                     app:srcCompat="@drawable/d20_1" />
 
@@ -137,17 +142,36 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="8dp" />
+            android:layout_height="8dp"
+            android:layout_weight="0.2" />
 
         <TextView
-            android:id="@+id/rollResult"
+            android:id="@+id/rollCount"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_margin="10dp"
             android:layout_marginTop="20dp"
             android:autoSizeMaxTextSize="34sp"
             android:autoSizeMinTextSize="30sp"
+            android:capitalize="none"
             android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="32sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/previousRolls"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.2"
+            android:autoSizeMaxTextSize="34sp"
+            android:autoSizeMinTextSize="30sp"
+            android:capitalize="none"
+            android:minHeight="48dp"
+            android:text="Previous Rolls: None Yet"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="32sp"

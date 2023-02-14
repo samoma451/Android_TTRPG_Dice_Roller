@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.ttrpgdiceroller"
+        applicationId 'sam.oma.ttrpgdiceroller'
         minSdk 30
         targetSdk 32
         versionCode 1

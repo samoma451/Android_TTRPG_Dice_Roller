@@ -3,7 +3,6 @@ package sam.oma.ttrpgdiceroller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -56,10 +55,6 @@ public class rolld100Activity extends AppCompatActivity {
 
         //assigning TextView that displays roll results
         rollResult = findViewById(R.id.rollResult);
-
-        //used to set size of dice ImageViews. Is there a better way to do this? getMetrics() deprecated :(
-        int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-
 
         //bringing user back to main activity
         backbtn.setOnClickListener(new View.OnClickListener() {

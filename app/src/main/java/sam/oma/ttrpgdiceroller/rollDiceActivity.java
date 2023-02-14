@@ -19,13 +19,15 @@ import androidx.core.content.ContextCompat;
 
 import com.example.ttrpgdiceroller.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 public class rollDiceActivity extends AppCompatActivity {
 
     private ImageView[] diceCollection;//stores each dice ImageView
-    private TextView rollResult;//used to display results of dice rolls and sum of results
+    private TextView rollResultTextView;//used to display results of dice rolls and sum of results
+    private TextView previousRollsTextView;
     private int numOfDice = 1;//tracks the number of dices requested to be rolled
     private final int maxNumOfDice = 8;//setting the max number of dice. Have as class variable to make easier to change in future if needed
 
@@ -86,7 +88,11 @@ public class rollDiceActivity extends AppCompatActivity {
         diceCollection = new ImageView[]{diceA, diceB, diceC, diceD, diceE, diceF, diceG, diceH};
 
         //assigning TextView that displays roll results
-        rollResult = findViewById(R.id.rollResult);
+        rollResultTextView = findViewById(R.id.rollCount);
+
+        previousRollsTextView = findViewById(R.id.previousRolls);
+        ArrayList<Integer> previousRollsQ = new ArrayList<>();
+
 
         //initialising diceImages
         int[] diceImages = new int[0];
@@ -166,19 +172,35 @@ public class rollDiceActivity extends AppCompatActivity {
                 
                 
                 rollResultText = new StringBuilder(rollResultText.substring(0, rollResultText.length() - 3));//removing excessive " + "
-                rollResultText.append(" = ").append(Arrays.stream(randNums).sum());//add sum of rolls to end of text for rollResult TextView
+                int totalOfRolls = Arrays.stream(randNums).sum();
+                rollResultText.append(" = ").append(totalOfRolls);//add sum of rolls to end of text for rollResult TextView
 
                 //Setting text on rollResult TextView. if statement checks if only one dice rolled as showing Result: 4 = 4 looks sloppy
                 if (numOfDice == 1){
                     String numToShow = Arrays.toString(randNums);
                     if (randNums[0] <= 10) {//checking if single or double digit number rolled. Might be a more efficient way to do this
                         //also might be a better approach by declaring string formats?
-                        rollResult.setText("Result: " + numToShow.charAt(1));//slightly faster than substring
+                        rollResultTextView.setText("Result: " + numToShow.charAt(1));//slightly faster than substring
                     }else{
-                        rollResult.setText("Result: " + numToShow.substring(1, 3));
+                        rollResultTextView.setText("Result: " + numToShow.substring(1, 3));
                     }
-                }else{rollResult.setText(rollResultText.toString());}
+                }else{
+                    rollResultTextView.setText(rollResultText.toString());}
 
+                StringBuilder previousRollsText = new StringBuilder("Previous Rolls");
+
+
+                if (previousRollsQ.size() < 8) {
+                    previousRollsQ.add(totalOfRolls);
+                }else{
+                    previousRollsQ.remove(0);
+                    previousRollsQ.add(totalOfRolls);
+                }
+
+                for (int i = 0; i < previousRollsQ.size(); i++) {
+                    previousRollsText.append(";  " + previousRollsQ.get(i));
+                }
+                previousRollsTextView.setText(previousRollsText);
             }
         });
 
